@@ -2,6 +2,7 @@ package com.codeknab.sportgeeks.controller;
 
 import com.codeknab.sportgeeks.domain.Participation;
 import com.codeknab.sportgeeks.dtos.ParticipationDTO;
+import com.codeknab.sportgeeks.dtos.ParticipationPostDTO;
 import com.codeknab.sportgeeks.mapper.ParticipationMapper;
 import com.codeknab.sportgeeks.service.ParticipationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,10 @@ public class ParticipationController {
     private ParticipationMapper mapper;
 
     @PostMapping("/{eventId}")
-    public ParticipationDTO addParticipationToSportEvent(@RequestBody ParticipationDTO participation,
+    public ParticipationPostDTO addParticipationToSportEvent(@RequestBody ParticipationPostDTO participation,
                                                          @PathVariable Long eventId) {
         Participation participationToAdd = mapper.toParticipation(participation);
         participationToAdd.setSportEventId(eventId);
-        return mapper.toParticipationDTO(service.addParticipation(participationToAdd));
+        return mapper.toParticipationPostDTO(service.addParticipation(participationToAdd));
     }
 }

@@ -52,4 +52,8 @@ public class SportEvent {
     @ManyToOne
     @JoinColumn(name = "localisation_id")
     private Localisation localisation;
+
+    @OneToOne
+    @JoinColumn(name = "localisation_point_id")
+    private LocalisationPoint localisationPoint;
 }

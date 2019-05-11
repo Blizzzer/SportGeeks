@@ -29,5 +29,7 @@ public class SportEventDTO {
 
     private LocalisationDTO localisation;
 
+    private CustomLocalisationPointDTO customLocalisationPoint;
+
     private UserDTO organisator;
 }

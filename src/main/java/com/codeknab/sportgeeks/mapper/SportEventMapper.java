@@ -9,6 +9,7 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", uses = {UserMapper.class, LocalisationMapper.class})
 public abstract class SportEventMapper {
+    @Mapping(target = "customLocalisationPoint", source = "localisationPoint")
     public abstract SportEventDTO toSportEventDTO(SportEvent sportEvent);
 
     @Mapping(target = "organisatorId", source = "sportEvent.organisator.id")

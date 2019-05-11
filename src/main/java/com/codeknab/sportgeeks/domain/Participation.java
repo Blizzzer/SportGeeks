@@ -26,4 +26,7 @@ public class Participation {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @Column(name = "event_id")
+    private Long sportEventId;
 }

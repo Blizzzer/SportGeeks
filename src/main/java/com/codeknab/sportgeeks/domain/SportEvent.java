@@ -8,7 +8,9 @@ import lombok.Data;
 import javax.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import static com.google.common.collect.Lists.newArrayList;
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -57,4 +59,8 @@ public class SportEvent {
     @OneToOne(cascade = ALL)
     @JoinColumn(name = "localisation_point_id")
     private LocalisationPoint localisationPoint;
+
+    @OneToMany(cascade = ALL, orphanRemoval = true)
+    @JoinColumn(name = "event_id")
+    private List<Participation> participations = newArrayList();
 }

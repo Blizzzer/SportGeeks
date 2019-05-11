@@ -9,6 +9,7 @@ import javax.persistence.*;
 
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -27,15 +28,15 @@ public class Localisation {
 
     private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = ALL)
     @JoinColumn(name = "center_id")
     private LocalisationPoint center;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = ALL, orphanRemoval = true)
     @JoinColumn(name = "localisation_id")
     private List<LocalisationPoint> polygonPoints;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = ALL, orphanRemoval = true)
     @JoinColumn(name = "localisation_id")
     private List<LocalisationSportType> sportTypes;
 }

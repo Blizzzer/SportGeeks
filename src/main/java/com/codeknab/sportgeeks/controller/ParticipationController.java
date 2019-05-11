@@ -26,6 +26,8 @@ public class ParticipationController {
                                                          @PathVariable Long eventId) {
         Participation participationToAdd = mapper.toParticipation(participation);
         participationToAdd.setSportEventId(eventId);
-        return mapper.toParticipationPostDTO(service.addParticipation(participationToAdd));
+        Participation savedParticipation = service.addParticipation(participationToAdd);
+        ParticipationPostDTO participationPostDTOTOReturn = mapper.toParticipationPostDTO(savedParticipation);
+        return participationPostDTOTOReturn;
     }
 }

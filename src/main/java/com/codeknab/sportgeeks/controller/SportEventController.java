@@ -10,6 +10,7 @@ import com.codeknab.sportgeeks.service.SportEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -45,7 +46,7 @@ public class SportEventController {
     }
 
     @PostMapping
-    public SportEventPostDTO postSportEvent(@RequestBody SportEventPostDTO sportEventPostDTO) {
+    public SportEventPostDTO postSportEvent(@Valid @RequestBody SportEventPostDTO sportEventPostDTO) {
         return mapper.toSportEventPostDTO(service.saveSportEvent(mapper.toSportEvent(sportEventPostDTO)));
     }
 }

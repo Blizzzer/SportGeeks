@@ -12,6 +12,7 @@ public abstract class ParticipationMapper {
     public abstract ParticipationDTO toParticipationDTO(Participation participation);
 
     @Mapping(target = "userId", source = "user.id")
+    @Mapping(target = "id", source = "participation.id")
     public abstract ParticipationPostDTO toParticipationPostDTO(Participation participation);
 
     public abstract Participation toParticipation(ParticipationDTO participation);

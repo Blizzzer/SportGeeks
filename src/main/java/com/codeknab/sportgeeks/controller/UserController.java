@@ -6,6 +6,8 @@ import com.codeknab.sportgeeks.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -27,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping
-    public UserDTO postUser(@RequestBody UserDTO userDTO) {
+    public UserDTO postUser(@Valid @RequestBody UserDTO userDTO) {
         return mapper.toUserDTO(
                 service.postUser(
                         mapper.toUser(userDTO)

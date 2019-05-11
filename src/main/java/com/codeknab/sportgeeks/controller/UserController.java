@@ -28,6 +28,10 @@ public class UserController {
 
     @PostMapping
     public UserDTO postUser(@RequestBody UserDTO userDTO) {
-        return mapper.toUserDTO(service.postUser(mapper.toUser(userDTO)));
+        return mapper.toUserDTO(
+                service.postUser(
+                        mapper.toUser(userDTO)
+                )
+        );
     }
 }

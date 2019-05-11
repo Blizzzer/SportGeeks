@@ -17,6 +17,9 @@ public abstract class LocalisationMapper {
     public abstract LocalisationDTO toLocalisationDTO(Localisation localisation);
 
     public List<SportType> localisationSportTypesToSportTypes(Localisation localisation) {
-        return localisation.getSportTypes().stream().map(LocalisationSportType::getSportType).collect(toList());
+        return localisation.getSportTypes()
+                .stream()
+                .map(LocalisationSportType::getSportType)
+                .collect(toList());
     }
 }

@@ -22,4 +22,6 @@ public abstract class LocalisationMapper {
                 .map(LocalisationSportType::getSportType)
                 .collect(toList());
     }
+
+    public abstract List<LocalisationDTO> toLocalisationDTOs(List<Localisation> localisations);
 }

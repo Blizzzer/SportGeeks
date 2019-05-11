@@ -31,4 +31,6 @@ public class SportEventPostDTO {
 
     private CustomLocalisationPointDTO customLocalisationPoint;
 
+    private Long predefinedLocalisationId;
+
 }

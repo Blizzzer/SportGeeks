@@ -1,6 +1,9 @@
 package com.codeknab.sportgeeks.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -11,6 +14,9 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "localisation")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Localisation {
 
     @Id

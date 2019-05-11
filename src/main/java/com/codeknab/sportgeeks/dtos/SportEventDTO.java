@@ -26,4 +26,6 @@ public class SportEventDTO {
     private Double price;
 
     private SportType sportType;
+
+    private UserDTO organisator;
 }

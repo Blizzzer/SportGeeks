@@ -9,6 +9,7 @@ import javax.persistence.*;
 
 import java.time.LocalDateTime;
 
+import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -31,13 +32,20 @@ public class SportEvent {
     private String description;
 
     @Column(name = "difficulty_level")
+    @Enumerated(STRING)
     private Difficulty difficulty;
 
     @Column(name = "gender")
+    @Enumerated(STRING)
     private GenderOption genderOption;
 
     private Double price;
 
     @Column(name = "sport_type")
+    @Enumerated(STRING)
     private SportType sportType;
+
+    @ManyToOne
+    @JoinColumn(name = "organisator_id")
+    private User organisator;
 }

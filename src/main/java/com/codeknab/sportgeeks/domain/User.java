@@ -1,6 +1,7 @@
 package com.codeknab.sportgeeks.domain;
 
 import com.codeknab.sportgeeks.enums.Gender;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "user")
 @Data
+@Builder
 public class User {
 
     @Id

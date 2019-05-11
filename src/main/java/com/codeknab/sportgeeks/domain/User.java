@@ -1,8 +1,10 @@
 package com.codeknab.sportgeeks.domain;
 
 import com.codeknab.sportgeeks.enums.Gender;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -11,8 +13,10 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "user")
+@AllArgsConstructor
 @Data
 @Builder
+@NoArgsConstructor
 public class User {
 
     @Id

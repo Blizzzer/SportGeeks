@@ -14,4 +14,8 @@ public class SportEventService {
     public SportEvent getSingleSportEvent(Long id) {
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("SportEvent", "id", id));
     }
+
+    public SportEvent saveSportEvent(SportEvent sportEvent) {
+        return repository.save(sportEvent);
+    }
 }

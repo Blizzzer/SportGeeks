@@ -49,4 +49,9 @@ public class SportEventController {
     public SportEventPostDTO postSportEvent(@Valid @RequestBody SportEventPostDTO sportEventPostDTO) {
         return mapper.toSportEventPostDTO(service.saveSportEvent(mapper.toSportEvent(sportEventPostDTO)));
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteSportEvent(@PathVariable Long id) {
+        service.deleteSportEvent(id);
+    }
 }

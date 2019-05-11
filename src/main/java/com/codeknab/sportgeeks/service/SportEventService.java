@@ -38,6 +38,10 @@ public class SportEventService {
         return repository.save(sportEvent);
     }
 
+    public void deleteSportEvent(Long id){
+        repository.deleteById(id);
+    }
+
     public List<SportEvent> getFilteredSportEvents(
             Double maxLatitude,
             Double minLatitude,

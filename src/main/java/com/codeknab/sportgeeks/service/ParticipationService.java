@@ -16,4 +16,8 @@ public class ParticipationService {
     public Participation addParticipation(Participation participation) {
         return repository.save(participation);
     }
+
+    public void deleteParticipation(Long id) {
+        repository.deleteById(id);
+    }
 }

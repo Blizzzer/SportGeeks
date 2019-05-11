@@ -5,6 +5,7 @@ import com.codeknab.sportgeeks.enums.GenderOption;
 import com.codeknab.sportgeeks.enums.SportType;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
@@ -27,10 +28,12 @@ public class SportEventPostDTO {
 
     private SportType sportType;
 
+    @NotNull
     private Long organisatorId;
 
     private CustomLocalisationPointDTO customLocalisationPoint;
 
+    @NotNull
     private Long predefinedLocalisationId;
 
 }

@@ -3,6 +3,7 @@ package com.codeknab.sportgeeks.domain;
 import com.codeknab.sportgeeks.enums.Difficulty;
 import com.codeknab.sportgeeks.enums.GenderOption;
 import com.codeknab.sportgeeks.enums.SportType;
+import lombok.Data;
 
 import javax.persistence.*;
 
@@ -12,6 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "sport_event")
+@Data
 public class SportEvent {
     @Id
     @GeneratedValue(strategy = IDENTITY)

@@ -1,5 +1,6 @@
 package com.codeknab.sportgeeks.mapper;
 
+import com.codeknab.sportgeeks.domain.Localisation;
 import com.codeknab.sportgeeks.domain.SportEvent;
 import com.codeknab.sportgeeks.domain.User;
 import com.codeknab.sportgeeks.dtos.SportEventDTO;
@@ -13,9 +14,13 @@ public abstract class SportEventMapper {
     public abstract SportEventDTO toSportEventDTO(SportEvent sportEvent);
 
     @Mapping(target = "organisatorId", source = "sportEvent.organisator.id")
+    @Mapping(target = "customLocalisationPoint", source = "sportEvent.localisationPoint")
+    @Mapping(target = "predefinedLocalisationId", source = "sportEvent.localisation.id")
     public abstract SportEventPostDTO toSportEventPostDTO(SportEvent sportEvent);
 
     @Mapping(target = "organisator", expression = "java(resolveOrganisator(sportEvent))")
+    @Mapping(target = "localisationPoint", source = "sportEvent.customLocalisationPoint")
+    @Mapping(target = "localisation", expression = "java(resolveLocalisation(sportEvent))")
     public abstract SportEvent toSportEvent(SportEventPostDTO sportEvent);
 
     public User resolveOrganisator(SportEventPostDTO sportEvent) {
@@ -23,6 +28,14 @@ public abstract class SportEventMapper {
                 ? null
                 : User.builder()
                 .id(sportEvent.getOrganisatorId())
+                .build();
+    }
+
+    public Localisation resolveLocalisation(SportEventPostDTO sportEvent) {
+        return sportEvent.getPredefinedLocalisationId() == null
+                ? null
+                : Localisation.builder()
+                .id(sportEvent.getPredefinedLocalisationId())
                 .build();
     }
 }

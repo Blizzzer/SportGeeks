@@ -28,4 +28,9 @@ public class SportEventPostDTO {
     private SportType sportType;
 
     private Long organisatorId;
+
+    private CustomLocalisationPointDTO customLocalisationPoint;
+
+    private Long predefinedLocalisationId;
+
 }

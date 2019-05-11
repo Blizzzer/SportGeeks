@@ -9,6 +9,7 @@ import javax.persistence.*;
 
 import java.time.LocalDateTime;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -53,7 +54,7 @@ public class SportEvent {
     @JoinColumn(name = "localisation_id")
     private Localisation localisation;
 
-    @OneToOne
+    @OneToOne(cascade = ALL)
     @JoinColumn(name = "localisation_point_id")
     private LocalisationPoint localisationPoint;
 }

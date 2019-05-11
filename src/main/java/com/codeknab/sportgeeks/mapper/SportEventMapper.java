@@ -13,9 +13,11 @@ public abstract class SportEventMapper {
     public abstract SportEventDTO toSportEventDTO(SportEvent sportEvent);
 
     @Mapping(target = "organisatorId", source = "sportEvent.organisator.id")
+    @Mapping(target = "customLocalisationPoint", source = "sportEvent.localisationPoint")
     public abstract SportEventPostDTO toSportEventPostDTO(SportEvent sportEvent);
 
     @Mapping(target = "organisator", expression = "java(resolveOrganisator(sportEvent))")
+    @Mapping(target = "localisationPoint", source = "sportEvent.customLocalisationPoint")
     public abstract SportEvent toSportEvent(SportEventPostDTO sportEvent);
 
     public User resolveOrganisator(SportEventPostDTO sportEvent) {

@@ -20,12 +20,15 @@ public class SportEventPostDTO {
 
     private String description;
 
+    @NotNull
     private Difficulty difficulty;
 
+    @NotNull
     private GenderOption genderOption;
 
     private Double price;
 
+    @NotNull
     private SportType sportType;
 
     @NotNull

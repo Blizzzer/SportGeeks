@@ -3,11 +3,9 @@ package com.codeknab.sportgeeks.domain;
 import com.codeknab.sportgeeks.enums.SportType;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -18,5 +16,6 @@ public class LocalisationSportType {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
+    @Enumerated(STRING)
     private SportType sportType;
 }

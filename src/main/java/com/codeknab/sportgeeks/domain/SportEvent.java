@@ -51,5 +51,5 @@ public class SportEvent {
 
     @ManyToOne
     @JoinColumn(name = "localisation_id")
-    private Localisation predefinedLocalisation;
+    private Localisation localisation;
 }

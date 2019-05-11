@@ -31,5 +31,5 @@ public class Localisation {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "localisation_id")
-    private List<LocalisationSportType> sportType;
+    private List<LocalisationSportType> sportTypes;
 }

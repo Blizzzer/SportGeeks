@@ -1,5 +1,6 @@
 package com.codeknab.sportgeeks.dtos;
 
+import com.codeknab.sportgeeks.enums.SportType;
 import lombok.Data;
 
 import java.util.List;
@@ -16,5 +17,5 @@ public class LocalisationDTO {
 
     private List<LocalisationPointDTO> polygonPoints;
 
-    private List<String> sportTypes;
+    private List<SportType> sportTypes;
 }

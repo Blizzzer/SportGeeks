@@ -8,7 +8,7 @@ import com.codeknab.sportgeeks.dtos.SportEventPostDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = {UserMapper.class, LocalisationMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class, LocalisationMapper.class, ParticipationMapper.class})
 public abstract class SportEventMapper {
     @Mapping(target = "customLocalisationPoint", source = "localisationPoint")
     public abstract SportEventDTO toSportEventDTO(SportEvent sportEvent);

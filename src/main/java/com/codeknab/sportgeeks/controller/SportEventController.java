@@ -1,6 +1,5 @@
 package com.codeknab.sportgeeks.controller;
 
-import com.codeknab.sportgeeks.domain.SportEvent;
 import com.codeknab.sportgeeks.dtos.SportEventDTO;
 import com.codeknab.sportgeeks.dtos.SportEventPostDTO;
 import com.codeknab.sportgeeks.mapper.SportEventMapper;

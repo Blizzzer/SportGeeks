@@ -1,5 +1,6 @@
 package com.codeknab.sportgeeks.dtos;
 
+import com.codeknab.sportgeeks.enums.SportType;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -17,4 +18,6 @@ public class SportEventListElementDTO {
     private String organisatorName;
 
     private long participationsNumber;
+
+    private SportType sportType;
 }

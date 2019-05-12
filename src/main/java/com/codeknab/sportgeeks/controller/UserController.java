@@ -23,7 +23,7 @@ public class UserController {
         return mapper.toUserDTO(service.getSingleUser(id));
     }
 
-    @GetMapping("")
+    @GetMapping
     public UserDTO getSingleUserByUID(@RequestParam("uid") String uid) {
         return mapper.toUserDTO(service.getSingleUserByUID(uid));
     }

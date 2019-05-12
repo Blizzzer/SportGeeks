@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.codeknab.sportgeeks.enums.LocalisationPointType.CUSTOM;
 import static io.vavr.API.$;
@@ -32,13 +34,13 @@ public class SportEventService {
 
     @Transactional
     public SportEvent saveSportEvent(SportEvent sportEvent) {
-        if(sportEvent.getLocalisationPoint() != null) {
+        if (sportEvent.getLocalisationPoint() != null) {
             sportEvent.getLocalisationPoint().setType(CUSTOM);
         }
         return repository.save(sportEvent);
     }
 
-    public void deleteSportEvent(Long id){
+    public void deleteSportEvent(Long id) {
         repository.deleteById(id);
     }
 
@@ -68,6 +70,21 @@ public class SportEventService {
                                 & event.getLocalisation().getCenter().getLongitude() > minLongitude
                 )
                 .collect(toList());
+    }
+
+    public List<SportEvent> getByUserIdSorted(Long userId) {
+        return repository.findAll().stream().filter(event -> event.getParticipations()
+                .stream()
+                .anyMatch(participation -> participation.getUser().getId() == userId)
+        ).sorted(Comparator.comparing(SportEvent::getStartTime)).collect(toList());
+    }
+
+    public SportEvent getSingleByUserIdSorted(Long userId) {
+        return repository.findAll().stream().filter(event -> event.getParticipations()
+                .stream()
+                .anyMatch(participation -> participation.getUser().getId() == userId)
+        ).sorted(Comparator.comparing(SportEvent::getStartTime))
+                .findFirst().orElseThrow(() -> new ResourceNotFoundException("SportEvent", "userId", userId));
     }
 
 }

@@ -45,6 +45,16 @@ public class SportEventController {
                 ));
     }
 
+    @GetMapping("/user/list/{userId}")
+    public List<SportEventListElementDTO> getSortedSportEventByUserId(@PathVariable Long userId) {
+        return mapper.toSportEventListElementDTOs(service.getByUserIdSorted(userId));
+    }
+
+    @GetMapping("/user/element/{userId}")
+    public SportEventDTO getFirstSportEventByUserId(@PathVariable Long userId) {
+        return mapper.toSportEventDTO(service.getSingleByUserIdSorted(userId));
+    }
+
     @PostMapping
     public SportEventPostDTO postSportEvent(@Valid @RequestBody SportEventPostDTO sportEventPostDTO) {
         return mapper.toSportEventPostDTO(service.saveSportEvent(mapper.toSportEvent(sportEventPostDTO)));

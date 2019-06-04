@@ -34,14 +34,13 @@ public class SportEventController {
             @RequestParam("minLat") Double minLatitude,
             @RequestParam("maxLong") Double maxLongitude,
             @RequestParam("minLong") Double minLongitude,
-            @RequestParam("sport") SportType sportType,
-            @RequestParam("gender") Gender gender
+            @RequestParam("sport") SportType sportType
     ) {
         return mapper.toSportEventListElementDTOs(
                 service.getFilteredSportEvents(
                         maxLatitude, minLatitude,
                         maxLongitude, minLongitude,
-                        sportType, gender
+                        sportType
                 ));
     }
 

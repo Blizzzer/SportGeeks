@@ -49,18 +49,10 @@ public class SportEventService {
             Double minLatitude,
             Double maxLongitude,
             Double minLongitude,
-            SportType sportType,
-            Gender gender
+            SportType sportType
     ) {
         return repository.findAllBySportType(sportType).stream()
                 .filter(event -> nonNull(event.getLocalisation()))
-                .filter(event ->
-                        API.Match(event.getGenderOption()).of(
-                                Case($(GenderOption.MALE), gender == Gender.MALE),
-                                Case($(GenderOption.FEMALE), gender == Gender.FEMALE),
-                                Case($(GenderOption.MIX), true)
-                        )
-                )
                 .filter(event ->
                         event.getLocalisation().getCenter().getLatitude() < maxLatitude
                                 & event.getLocalisation().getCenter().getLatitude() > minLatitude

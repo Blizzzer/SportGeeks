@@ -4,6 +4,7 @@ import com.codeknab.sportgeeks.enums.SportType;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class SportEventListElementDTO {
@@ -18,6 +19,8 @@ public class SportEventListElementDTO {
     private String organisatorName;
 
     private long participationsNumber;
+
+    private List<ParticipationDTO> participations;
 
     private SportType sportType;
 }

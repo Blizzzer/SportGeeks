@@ -9,6 +9,7 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel="spring")
 public abstract class ParticipationMapper {
+    @Mapping(target = "userId", source = "user.id")
     public abstract ParticipationDTO toParticipationDTO(Participation participation);
 
     @Mapping(target = "userId", source = "user.id")

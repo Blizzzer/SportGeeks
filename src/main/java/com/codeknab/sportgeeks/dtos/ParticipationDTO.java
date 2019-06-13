@@ -12,5 +12,5 @@ public class ParticipationDTO {
 
     private String additionalInfo;
 
-    private UserDTO user;
+    private Long userId;
 }
